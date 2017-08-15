@@ -1,0 +1,42 @@
+@{
+    ViewData["Title"] = "Giải phương trình bậc nhất";
+}
+
+<form action="" method="POST">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                     <a title="Quay lại trang chủ" href="/" class="pull-left">
+                        <span style="font-size:30px;margin-top:15px;" class="glyphicon glyphicon-arrow-left"></span>
+                    </a>
+                    <h3 style="text-tranform:upper" class="text-center">
+                        <b>1. Giải phương trình bậc nhất</b>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            <div class="input-group">
+                                <input value="@Model.a" type="text" class="form-control" name="a" aria-describedby="basic-addon2">
+                                <span class="input-group-addon" id="basic-addon2"><b>X</b></span>
+                            </div>
+                        </div>
+                        <span style="margin-left:-5px;position:fixed;margin-top:3px;font-size:20px;font-weight:bold">+</span>
+                         <div class="col-md-2">
+                            <input type="text"  value="@Model.b" class="form-control" name="b">
+                        </div>
+                        <span style="margin-left:-5px;position:fixed;margin-top:3px;font-size:20px;font-weight:bold"> = 0</span>
+                    </div>
+                    <br><br>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Giải</button>
+                    </div></hr>
+                    <div class="form-group">
+                        <h4>@Model.kq</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

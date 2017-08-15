@@ -1,0 +1,107 @@
+@{
+    ViewData["Title"] = "Chọn ngẫu nhiên sinh viên";
+    
+    List<svtext.Models.svtext_class> list = (List<svtext.Models.svtext_class>)ViewData["list_sv"];
+    int index = list.Count-1;
+    <!--svtext.Models.svtextclass sv_choosed = ( svtext.Models.svtext_class)ViewData["sv_choosed"];-->
+}
+
+<form action="" method="POST">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 lst_sv_div">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                     <a title="Quay lại trang chủ" href="/" class="pull-left">
+                        <span style="font-size:30px;margin-top:15px;" class="glyphicon glyphicon-arrow-left"></span>
+                    </a>
+                    <h3 style="text-tranform:upper" class="text-center">
+                        <b>6. Chọn ngẫu nhiên sinh viên</b>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-choosing">Chọn ngẫu nhiên</button>
+                    </div>
+                    <table class="table table-bordered table-hovered tb_list_sv">
+                        <thead>
+                            <th>STT</th>
+                            <th>Mã sinh viên</th>
+                            <th>Họ và tên</th>
+                            <th>Giới tính</th>
+                            <th>Ngày sinh</th>
+                            <th>Quê quán</th>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in list)
+                            {
+                                <tr>
+                                    <td>@(list.Count-index)</td>
+                                    <td>@item.id</td>
+                                    <td>@item.name</td>
+                                    <td>@item.gender</td>
+                                    <td>@item.dob</td>
+                                    <td>@item.hometown</td>
+                                </tr>
+                                index--;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 hidden div-sv-choosing">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 style="text-tranform:upper" class="text-center">
+                        <b>Sinh viên được chọn</b>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-hovered sv_choosed">
+                        <thead>
+                            <th>STT</th>
+                            <th>Mã sinh viên</th>
+                            <th>Họ và tên</th>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts{
+        <script>
+            $(function(){
+                $('.btn-choosing').off('click').on('click',function(e){
+                    $('.div-sv-choosing').removeClass('hidden');
+                    $('.lst_sv_div').removeClass('col-md-10');
+                     $('.lst_sv_div').removeClass('col-md-offset-1');
+                      $('.lst_sv_div').addClass('col-md-8');
+                    e.preventDefault();
+                    $.get('/Home/getsv',function(data){                        
+                        var sv = data.split('#');
+                        var stt;
+                         $('.tb_list_sv tbody').find('tr').each(function(){
+                            var td = $(this).find('td');
+                            if(td.eq(1).text() == sv[0]){
+                                stt = td.eq(0).text();
+                            }
+                        });
+                        if(stt != undefined){
+                            $('.sv_choosed tbody').append('<tr><td>'+stt+'</td><td>'+sv[0]+'</td><td>'+sv[1]+'</td></tr>');
+                        }
+                        $('.tb_list_sv tbody').find('tr').each(function(){
+                            var td = $(this).find('td');
+                            if(td.eq(1).text() == sv[0]){
+                                $(this).remove();
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+    }
+</form>

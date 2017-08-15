@@ -1,0 +1,45 @@
+@{
+    ViewData["Title"] = "Read all student in file excel";
+    int index = 0;
+    List<svtext.Models.svtext_class> list = (List<svtext.Models.svtext_class>)ViewData["data_excel"];
+}
+
+<form action="" method="POST">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a title="Quay lại trang chủ" href="/" class="pull-left">
+                        <span style="font-size:30px;margin-top:15px;" class="glyphicon glyphicon-arrow-left"></span>
+                    </a>
+                    <h3 style="text-tranform:upper" class="text-center">
+                        <b>5. Danh sách sinh viên đọc từ file excel</b>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-hovered">
+                        <thead>
+                            <th>Mã sinh viên</th>
+                            <th>Họ và tên</th>
+                            <th>Giới tính</th>
+                            <th>Ngày sinh</th>
+                            <th>Quê quán</th>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in list)
+                            {
+                                <tr>
+                                    <td>@item.id</td>
+                                    <td>@item.name</td>
+                                    <td>@item.gender</td>
+                                    <td>@item.dob</td>
+                                    <td>@item.hometown</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

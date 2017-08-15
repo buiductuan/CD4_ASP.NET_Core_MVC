@@ -1,0 +1,8 @@
+H:\workspace\ASP.NET Core\CD4\temp_14_08_17\bin\Debug\netcoreapp1.1\temp_14_08_17.deps.json
+H:\workspace\ASP.NET Core\CD4\temp_14_08_17\bin\Debug\netcoreapp1.1\temp_14_08_17.runtimeconfig.json
+H:\workspace\ASP.NET Core\CD4\temp_14_08_17\bin\Debug\netcoreapp1.1\temp_14_08_17.runtimeconfig.dev.json
+H:\workspace\ASP.NET Core\CD4\temp_14_08_17\bin\Debug\netcoreapp1.1\temp_14_08_17.dll
+H:\workspace\ASP.NET Core\CD4\temp_14_08_17\bin\Debug\netcoreapp1.1\temp_14_08_17.pdb
+H:\workspace\ASP.NET Core\CD4\temp_14_08_17\obj\Debug\netcoreapp1.1\temp_14_08_17.AssemblyInfo.cs
+H:\workspace\ASP.NET Core\CD4\temp_14_08_17\obj\Debug\netcoreapp1.1\temp_14_08_17.dll
+H:\workspace\ASP.NET Core\CD4\temp_14_08_17\obj\Debug\netcoreapp1.1\temp_14_08_17.pdb
